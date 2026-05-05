@@ -6,9 +6,19 @@ import { MantraPlayerScreen } from './src/screens/MantraPlayerScreen';
 
 const Tab = createBottomTabNavigator();
 
+const linking = {
+  prefixes: [],
+  config: {
+    screens: {
+      Home: '',
+      Mantra: 'mantra',
+    },
+  },
+};
+
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       <Tab.Navigator
         screenOptions={{
           tabBarActiveTintColor: '#FF6B00',
