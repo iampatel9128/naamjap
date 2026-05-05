@@ -35,6 +35,9 @@ jobs:
         run: |
           cp public/manifest.json dist/manifest.json
           cp public/sw.js dist/sw.js
+          # Inject PWA tags into the generated index.html
+          sed -i 's|</head>|    <link rel="manifest" href="/naamjap/manifest.json" />\n    <meta name="theme-color" content="#FF6B00" />\n    <meta name="apple-mobile-web-app-capable" content="yes" />\n    <meta name="apple-mobile-web-app-status-bar-style" content="default" />\n    <meta name="apple-mobile-web-app-title" content="Naam Jap" />\n  </head>|' dist/index.html
+          sed -i 's|</body>|    <script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/naamjap/sw.js")})}</script>\n  </body>|' dist/index.html
           cp dist/index.html dist/404.html
 
       - uses: actions/configure-pages@v4
