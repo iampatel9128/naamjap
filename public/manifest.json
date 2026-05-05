@@ -2,19 +2,19 @@
   "name": "Naam Jap Counter",
   "short_name": "Naam Jap",
   "description": "A devotional chanting counter for tracking Naam Jap repetitions",
-  "start_url": "/",
+  "start_url": "/naamjap/",
   "display": "standalone",
   "background_color": "#FFF8F0",
   "theme_color": "#FF6B00",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/assets/assets/radha-krishna.png",
+      "src": "/naamjap/assets/assets/radha-krishna.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/assets/assets/radha-krishna.png",
+      "src": "/naamjap/assets/assets/radha-krishna.png",
       "sizes": "512x512",
       "type": "image/png"
     }

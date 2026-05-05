@@ -38,11 +38,11 @@ jobs:
 
       - name: Add PWA meta tags to index.html
         run: |
-          sed -i 's|<link rel="icon" href="/favicon.ico" />|<link rel="icon" href="/favicon.ico" />\n    <link rel="manifest" href="/manifest.json" />\n    <meta name="theme-color" content="#FF6B00" />\n    <meta name="apple-mobile-web-app-capable" content="yes" />\n    <meta name="apple-mobile-web-app-status-bar-style" content="default" />\n    <meta name="apple-mobile-web-app-title" content="Naam Jap" />\n    <link rel="apple-touch-icon" href="/assets/assets/radha-krishna.png" />|' dist/index.html
+          sed -i 's|<link rel="icon" href="/favicon.ico" />|<link rel="icon" href="/favicon.ico" />\n    <link rel="manifest" href="/naamjap/manifest.json" />\n    <meta name="theme-color" content="#FF6B00" />\n    <meta name="apple-mobile-web-app-capable" content="yes" />\n    <meta name="apple-mobile-web-app-status-bar-style" content="default" />\n    <meta name="apple-mobile-web-app-title" content="Naam Jap" />\n    <link rel="apple-touch-icon" href="/naamjap/assets/assets/radha-krishna.png" />|' dist/index.html
 
       - name: Add service worker registration
         run: |
-          sed -i 's|</body>|<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("/sw.js")})}</script>\n</body>|' dist/index.html
+          sed -i 's|</body>|<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("/naamjap/sw.js")})}</script>\n</body>|' dist/index.html
 
       - uses: actions/configure-pages@v4
 
