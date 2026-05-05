@@ -1,15 +1,6 @@
-const CACHE_NAME = 'naam-jap-v1';
+const CACHE_NAME = 'naam-jap-v2';
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll([
-        '/naamjap/',
-        '/naamjap/index.html',
-        '/naamjap/manifest.json',
-      ]);
-    })
-  );
   self.skipWaiting();
 });
 
@@ -22,14 +13,15 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
+// Network-first strategy: try network, fall back to cache
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      return cached || fetch(event.request).then((response) => {
+    fetch(event.request)
+      .then((response) => {
         const clone = response.clone();
         caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
         return response;
-      });
-    })
+      })
+      .catch(() => caches.match(event.request))
   );
 });
