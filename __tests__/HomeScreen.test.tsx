@@ -18,7 +18,7 @@ describe('HomeScreen', () => {
   it('renders DevotionalImage and CircularCounter', () => {
     render(<HomeScreen />);
     expect(screen.getByLabelText('Lord Radha and Krishna')).toBeTruthy();
-    expect(screen.getByRole('button')).toBeTruthy();
+    expect(screen.getByLabelText(/Counter:.*Tap to increment/)).toBeTruthy();
   });
 
   /**
@@ -34,7 +34,7 @@ describe('HomeScreen', () => {
    */
   it('increments count when counter is tapped', () => {
     render(<HomeScreen />);
-    const counter = screen.getByRole('button');
+    const counter = screen.getByLabelText(/Counter:.*Tap to increment/);
     fireEvent.press(counter);
     expect(screen.getByText('1/108')).toBeTruthy();
   });

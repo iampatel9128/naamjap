@@ -1,6 +1,24 @@
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { HomeScreen } from './src/screens/HomeScreen';
+import { MantraPlayerScreen } from './src/screens/MantraPlayerScreen';
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
-  return <HomeScreen />;
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarActiveTintColor: '#FF6B00',
+          tabBarInactiveTintColor: '#999',
+          headerShown: false,
+        }}
+      >
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Mantra" component={MantraPlayerScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
 }
