@@ -21,7 +21,7 @@ export function useCounter(maxCount: number = 108) {
       const next = getNextCount(prev, maxCount);
       if (next === 0 && prev > 0) {
         // Reached 108 — longer vibration
-        vibrate(400);
+        vibrate(200);
       } else {
         // Normal tap — short vibration
         vibrate(30);
